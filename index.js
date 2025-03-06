@@ -45,13 +45,11 @@ app.get('/api/sources', async (req, res) => {
   const apiUrl = `https://newsapi.org/v2/top-headlines/sources?country=${country}&apiKey=${API_KEY}`;
 
   try {
-    // Send request to NewsAPI
+  
     const response = await axios.get(apiUrl);
-
-    // Return the fetched sources
     res.json(response.data);
   } catch (error) {
-    // Handle errors properly
+
     console.error('Error fetching sources:', error.message);
 
     res.status(500).json({
